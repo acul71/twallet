@@ -1,24 +1,46 @@
 import logo from './logo.svg';
 import './App.css';
+import { useMoralis } from "react-moralis"
+import { Moralis } from 'moralis'
 
-function App() {
+const LogoutButton = () => {
+  const { logout, isAuthenticating } = useMoralis();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <button onClick={() => logout()} disabled={isAuthenticating}>
+      Logout
+    </button>
+  )
+}
+
+async function App() {
+  const { authenticate, isAuthenticated, user, ...rest } = useMoralis();
+  // Moralis.Web3.getAllERC20()
+  
+  
+  if (!isAuthenticated) {
+    return (
+      <div>
+        <button onClick={() => authenticate({ signingMessage: "twallet Authentication" })}>Authenticate</button>
+      </div>
+    );
+  }
+  console.log('user=', user)
+  console.log('rest=', rest)
+  console.log('getAllERC20=', await Moralis.Web3.getAllERC20())
+  return (
+    <>
+    <div>
+      <LogoutButton />
     </div>
+    <div>
+      <h1>Welcome {user.get("username")}</h1>
+      <pre>
+        {JSON.stringify(user, null, 2)}
+        
+      </pre>
+    </div>
+    </>
   );
 }
 
