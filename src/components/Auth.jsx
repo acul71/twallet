@@ -37,18 +37,22 @@ const Login = () => {
 
 
 
+
+
 export const Auth = () => {
   const { authenticate, isAuthenticating, authError } = useMoralis()
-
-  return <Stack spacing={6}>
-    {authError &&
-      <ErrorBox title='Authentication has failed' message={authError.message} />
-    }
-    <Image boxSize="15px" src="img/TWLogo.png" alt="TW Logo"/>
-    <Button isLoading={isAuthenticating} onClick={ () => authenticate({ signingMessage: "TWallet Authentication" }) }>
-        Authenticate via Metamask
-    </Button>
-  </Stack>
-
+  
+  return (
+    <Stack spacing={6}>
+      {authError &&
+        <ErrorBox title='Authentication has failed' message={authError.message} />
+      }
+      <Image boxSize="15px" src="img/TWLogo.png" alt="TW Logo"/>
+      <Button isLoading={isAuthenticating} onClick={ () => authenticate({ signingMessage: "TWallet Authentication" }) }>
+          Authenticate via Metamask
+      </Button>
+    </Stack>
+  )
+  
   
 }
