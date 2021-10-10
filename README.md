@@ -10,7 +10,7 @@ To test install lib with
 npm install
 ```
 and make a file 
-moralisCredetials.js 
+src/moralisCredetials.js 
 
 ```javascript
 export const appId = 'your moralis appid'
