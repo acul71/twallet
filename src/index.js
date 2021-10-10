@@ -6,12 +6,24 @@ import reportWebVitals from './reportWebVitals';
 
 import { appId, serverUrl } from './moralisCredetials'
 import { MoralisProvider } from "react-moralis"
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import { BrowserRouter} from 'react-router-dom'
+
+const theme = extendTheme({
+  config: {
+    initialColorMode: 'dark'
+  }
+})
 
 ReactDOM.render(
   
   <React.StrictMode>
     <MoralisProvider appId={appId} serverUrl={serverUrl}>
-      <App />
+      <ChakraProvider theme={theme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
     </MoralisProvider>
   </React.StrictMode>,
   document.getElementById('root')

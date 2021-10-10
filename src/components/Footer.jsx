@@ -9,7 +9,7 @@ export const Footer = () => {
         <Image boxSize="10px" src="img/TWLogo.png" alt="TW Logo" align="top"/>
         <Text fontSize="xs">Trading Wallet by PL</Text>
       </Box>
-      <Text fontSize="xs">Made with Moralis</Text>
+      <Text fontSize="xs">Made with Moralis, ParaSwap</Text>
     </Container>
   )
   // <Text fontSize="xs">Trading Wallet by PL</Text>

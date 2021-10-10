@@ -93,7 +93,7 @@ Response body
 
 const getTokenPrice = async (assetPlatform='ethereum', contractAddresses='0x......,0x......,....', currency='usd') => {
   try {
-    const query = `https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=${contractAddresses}&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
+    const query = `https://api.coingecko.com/api/v3/simple/token_price/${assetPlatform}?contract_addresses=${contractAddresses}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
     console.log('getTokenPrice: query=', query )
     
     const response = await axios.get(query)

@@ -39,7 +39,7 @@ export const PortAssetList = (props) => {
           </Tr>
         </Thead>
         <Tbody>
-        {
+          {
             props.assetsData.map( 
             
                ({key, name, ticker, balance, price}) => 
